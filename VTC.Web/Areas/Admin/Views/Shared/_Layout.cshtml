@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        @RenderBody()
+    </div>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <script src="/js/admin/master.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <!-- Modal content-->
+
+        </div>
+    </div>
+
+    @*<script>
+        $('.modal-dialog').load("https://localhost:7190/admin/package/AddEdit", function () {
+            $('#myModal').modal({ show: true });
+        });
+
+        var myModal = new bootstrap.Modal(document.getElementById("myModal"), {});
+
+        myModal.show();
+    </script>*@
+</body>
+</html>

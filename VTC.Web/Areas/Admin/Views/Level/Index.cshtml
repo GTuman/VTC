@@ -1,0 +1,58 @@
+﻿@model List<LevelVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Levels</h1>
+<form method="get">
+    <select name="packageId">
+        <option class="form-control">Please select package</option>
+        @foreach(PackageVM item in ViewBag.Packages)
+        {
+            <option value="@item.Id" selected="@(item.Id == ViewBag.SelectedPackageId?"selected":null)">@item.Title</option>
+        }
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<a asp-action="AddEdit" class="modal-open btn btn-success">Add level</a>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Level</th>
+            <th>Package</th>
+            <th>Subject Count</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.PackageName</td>
+                <td>@item.SubjectCount</td>
+                <td>
+                    <a asp-action = "Detail" asp-route-Id="@item.Id">Detail</a>
+                </td>
+                <td>
+                    <a asp-action="AddEdit" asp-route-levelId="@item.Id" class="modal-open">Edit</a>
+                </td>
+                <td>
+                    <a href="#">
+                        Delete
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        Add Subject
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

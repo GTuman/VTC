@@ -1,0 +1,32 @@
+﻿@model LevelVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h1>@actionText Level</h1>
+    </div>
+
+
+    <div class="modal-body">
+
+        <form method="post" asp-area="Admin" asp-action="AddEdit" asp-controller="Level">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label>
+                    Level
+                    
+                    
+                    Name
+                    <input asp-for="Title" class="form-control" />
+                </label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success">@actionText</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+
+</div>
